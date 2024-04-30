@@ -1,3 +1,7 @@
+// SET computer and human score
+let computerScore = 0;
+let humanScore = 0;
+
 function getComputerChoice() {
     // GET a number > 0 and  < 100
     let number = Math.random() * 100;
@@ -32,6 +36,6 @@ function getHumanChoice() {
     }
 
 }
-
-computerChoice = getComputerChoice();
-humanChoice = getHumanChoice();
+// SET computer and human choice
+let computerChoice = getComputerChoice();
+let humanChoice = getHumanChoice();
