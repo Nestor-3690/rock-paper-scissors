@@ -1,7 +1,26 @@
-// SET computer and human score
+// SET computer and human scores
 let computerScore = 0;
 let humanScore = 0;
-playRound();
+// RUN the game
+playGame();
+
+function playGame() {
+
+    // PLAY 5 Games
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
+
+    // SHOW the Game's result
+    if (computerScore > humanScore) {
+        console.log(`You Win the game! The score is ${humanScore} - ${computerScore}!`);
+    } else if (computerScore < humanScore) {
+        console.log(`You Lose the game! The score is ${humanScore} - ${computerScore}!`);
+    } else {
+        console.log(`The game is a draw! The score is ${humanScore} - ${computerScore}!`);
+    }
+    
+}
 
 function playRound() {
     // SET computer and human choices
