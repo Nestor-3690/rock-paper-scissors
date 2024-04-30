@@ -12,20 +12,23 @@ function getComputerChoice() {
         choice = "scissors";
     }
     console.log(choice);
+    // RETURN computer's choice
     return choice;
 }
 
 function getHumanChoice() {
-    // Ask the Human to make his choice
+    // ASK the Human to make his choice
     let choice = prompt("Rock, Paper or Scissors ?");
-    // Convert the choice to lowercase for checking
+    // CONVERT the choice to lowercase for checking
     choice = choice.toLowerCase();
-    // Check the choice
+    // CHECK the choice
     if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
-        // Asking back the Human
+        // ASKING back the Human
         getHumanChoice();
     } else {
         console.log(choice);
+        // RETURN human's choice
+        return choice;
     }
 
 }
