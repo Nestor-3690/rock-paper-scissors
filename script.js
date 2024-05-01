@@ -1,4 +1,4 @@
-// SET computer and human scores
+// SET computer and human scores = 0
 let computerScore = 0;
 let humanScore = 0;
 // RUN the game
@@ -6,12 +6,12 @@ playGame();
 
 function playGame() {
 
-    // PLAY 5 Games
+    // WHILE i < 5 playRound
     for (let i = 0; i < 5; i++) {
         playRound();
     }
 
-    // SHOW the Game's result
+    // PRINT the Game's result
     if (computerScore > humanScore) {
         console.log(`You Win the game! The score is ${humanScore} - ${computerScore}!`);
     } else if (computerScore < humanScore) {
@@ -30,16 +30,19 @@ function playRound() {
     // CHECK and add points to the winner
     if (computerChoice === humanChoice) {
         // IF tie, no points added
+        // SHOW Result of the Round and actual score
         console.log("Tie!");
         console.log(`The score is still ${humanScore} - ${computerScore}!`);
     } else if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
-        // IF the computer wins, he gains a point
+        // IF the computer wins, increment computerScore
         computerScore++;
+        // SHOW Result of the Round and actual score
         console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
         console.log(`The score is now ${humanScore} - ${computerScore}!`);
     } else {
-        // IF the human wins, he gains a point
+        // IF the human wins, increment humanScore
         humanScore++;
+        // SHOW Result of the Round and actual score
         console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
         console.log(`The score is now ${humanScore} - ${computerScore}!`);
     }
@@ -47,10 +50,10 @@ function playRound() {
 }
 
 function getComputerChoice() {
-    // GET a number > 0 and  < 100
+    // COMPUTE a number > 0 and  < 100
     let number = Math.random() * 100;
     console.log(number);
-    // SET a choice based on the number
+    // DETERMINE a choice based on the number
     let choice;
     if (number < 33) {
         choice = "rock";
@@ -65,13 +68,12 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // ASK the Human to make his choice
+    // GET Human's choice
     let choice = prompt("Rock, Paper or Scissors ?");
     // CONVERT the choice to lowercase for checking
     choice = choice.toLowerCase();
-    // CHECK the choice
+    // IF choice not valid, keep asking
     if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
-        // ASKING back the Human
         getHumanChoice();
     } else {
         console.log(choice);
