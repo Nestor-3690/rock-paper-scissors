@@ -13,9 +13,9 @@ function playGame() {
 
     // PRINT the Game's result
     if (computerScore > humanScore) {
-        console.log(`You Win the game! The score is ${humanScore} - ${computerScore}!`);
-    } else if (computerScore < humanScore) {
         console.log(`You Lose the game! The score is ${humanScore} - ${computerScore}!`);
+    } else if (computerScore < humanScore) {
+        console.log(`You Win the game! The score is ${humanScore} - ${computerScore}!`);
     } else {
         console.log(`The game is a draw! The score is ${humanScore} - ${computerScore}!`);
     }
@@ -52,7 +52,6 @@ function playRound() {
 function getComputerChoice() {
     // COMPUTE a number > 0 and  < 100
     let number = Math.random() * 100;
-    console.log(number);
     // DETERMINE a choice based on the number
     let choice;
     if (number < 33) {
@@ -63,7 +62,6 @@ function getComputerChoice() {
         choice = "scissors";
     }
     // RETURN computer's choice
-    console.log(choice)
     return choice;
 }
 
@@ -76,7 +74,6 @@ function getHumanChoice() {
     if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
         getHumanChoice();
     } else {
-        console.log(choice);
         // RETURN human's choice
         return choice;
     }
