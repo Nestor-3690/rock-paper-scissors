@@ -2,10 +2,9 @@
 let computerScore = 0;
 let humanScore = 0;
 
-let rock = document.querySelector("#rock");
-let paper = document.querySelector("#paper");
-let scissors = document.querySelector("#scissors");
-// RUN the game
+let buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => button.addEventListener("click", () => playRound(button.id)))
 
 function playGame() {
 
@@ -25,10 +24,9 @@ function playGame() {
     
 }
 
-function playRound() {
+function playRound(humanChoice) {
     // SET computer and human choices
     const computerChoice = getComputerChoice();
-    const humanChoice = getHumanChoice();
 
     // CHECK and add points to the winner
     if (computerChoice === humanChoice) {
