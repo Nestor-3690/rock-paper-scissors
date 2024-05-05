@@ -1,8 +1,11 @@
 // SET computer and human scores = 0
 let computerScore = 0;
 let humanScore = 0;
+
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissors = document.querySelector("#scissors");
 // RUN the game
-playGame();
 
 function playGame() {
 
