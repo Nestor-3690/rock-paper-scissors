@@ -1,6 +1,8 @@
 // SET computer and human scores = 0
 let computerScore = 0;
 let humanScore = 0;
+let finalScore = `${humanScore} - ${computerScore}`;
+let gameOver = false;
 
 let buttons = document.querySelectorAll("button");
 let result = document.querySelector("#result");
@@ -27,34 +29,44 @@ function playGame() {
 }
 
 function playRound(humanChoice) {
-    // SET computer and human choices
-    const computerChoice = getComputerChoice();
-
-    // CHECK and add points to the winner
-    if (computerChoice === humanChoice) {
-        // IF tie, no points added
-        // SHOW Result of the Round and actual score
-        result.textContent = "Tie!";
-        score.textContent = `The score is still ${humanScore} - ${computerScore}!`;
-    } else if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
-        // IF the computer wins, increment computerScore
-        computerScore++;
-        // SHOW Result of the Round and actual score
-        result.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-        score.textContent = `The score is now ${humanScore} - ${computerScore}!`;
+    if (gameOver) {
+        result.textContent = "Reload the page to play again!"
     } else {
-        // IF the human wins, increment humanScore
-        humanScore++;
-        // SHOW Result of the Round and actual score
-        result.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-        score.textContent = `The score is now ${humanScore} - ${computerScore}!`;
-    }
+        // SET computer and human choices
+        const computerChoice = getComputerChoice();
 
-    if (computerScore >=5 || humanScore >= 5) {
-        if (computerScore >= 5){
-            score.textContent = `Computer Win ! ${computerScore} - ${humanScore}`;
+        // CHECK and add points to the winner
+        if (computerChoice === humanChoice) {
+            // IF tie, no points added
+            // SHOW Result of the Round and actual score
+            result.textContent = "Tie!";
+            score.textContent = `The score is still ${humanScore} - ${computerScore}!`;
+        } else if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
+            // IF the computer wins, increment computerScore
+            computerScore++;
+            // SHOW Result of the Round and actual score
+            result.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+            score.textContent = `The score is now ${humanScore} - ${computerScore}!`;
         } else {
-            score.textContent = `You Win ! ${humanScore} - ${computerScore}`;
+            // IF the human wins, increment humanScore
+            humanScore++;
+            // SHOW Result of the Round and actual score
+            result.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+            score.textContent = `The score is now ${humanScore} - ${computerScore}!`;
+        }
+
+        if (computerScore >=5 || humanScore >= 5) {
+            if (!gameOver) {
+                finalScore = `${humanScore} - ${computerScore}`;
+                gameOver = true;
+            }
+            if (computerScore >= 5){
+                score.textContent = `Computer Win ! ${finalScore}`;
+                console.log(finalScore);
+            } else {
+                score.textContent = `You Win ! ${finalScore}`;
+                console.log(finalScore);
+            }
         }
     }
 
