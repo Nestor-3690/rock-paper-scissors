@@ -3,6 +3,8 @@ let computerScore = 0;
 let humanScore = 0;
 
 let buttons = document.querySelectorAll("button");
+let result = document.querySelector("#result");
+let score = document.querySelector("#score");
 
 buttons.forEach((button) => button.addEventListener("click", () => playRound(button.id)))
 
@@ -32,20 +34,20 @@ function playRound(humanChoice) {
     if (computerChoice === humanChoice) {
         // IF tie, no points added
         // SHOW Result of the Round and actual score
-        console.log("Tie!");
-        console.log(`The score is still ${humanScore} - ${computerScore}!`);
+        result.textContent = "Tie!";
+        score.textContent = `The score is still ${humanScore} - ${computerScore}!`;
     } else if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
         // IF the computer wins, increment computerScore
         computerScore++;
         // SHOW Result of the Round and actual score
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
-        console.log(`The score is now ${humanScore} - ${computerScore}!`);
+        result.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+        score.textContent = `The score is now ${humanScore} - ${computerScore}!`;
     } else {
         // IF the human wins, increment humanScore
         humanScore++;
         // SHOW Result of the Round and actual score
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-        console.log(`The score is now ${humanScore} - ${computerScore}!`);
+        result.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+        score.textContent = `The score is now ${humanScore} - ${computerScore}!`;
     }
 
 }
