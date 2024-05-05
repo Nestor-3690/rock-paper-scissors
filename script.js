@@ -50,6 +50,14 @@ function playRound(humanChoice) {
         score.textContent = `The score is now ${humanScore} - ${computerScore}!`;
     }
 
+    if (computerScore >=5 || humanScore >= 5) {
+        if (computerScore >= 5){
+            score.textContent = `Computer Win ! ${computerScore} - ${humanScore}`;
+        } else {
+            score.textContent = `You Win ! ${humanScore} - ${computerScore}`;
+        }
+    }
+
 }
 
 function getComputerChoice() {
